@@ -12,7 +12,7 @@
 #include <nes.h>
 
 // link the pattern table into CHR ROM
-//#link "chr_generic.s"
+//#link "smonster.s"
 
 // BCD arithmetic support
 #include "bcd.h"
@@ -22,6 +22,8 @@
 #include "vrambuf.h"
 //#link "vrambuf.c"
 
+#define NES_MAPPER 2
+#define NES_CHR_BANK 0
 /*{pal:"nes",layout:"nes"}*/
 const char PALETTE[32] = { 
   0x03,			// screen color
@@ -48,6 +50,10 @@ void setup_graphics() {
 void main(void)
 {
   setup_graphics();
+  // copy background tiles
+  vram_adr(0x0);
+  vram_write();
+  
   // draw message  
   vram_adr(NTADR_A(2,2));
   vram_write("MMC", 3);
