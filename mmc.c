@@ -130,7 +130,7 @@ void main(void)
   x = 2; y = 2;
   setup_graphics();
   // copy background tiles
-
+  num=0;
   for(j=0;j<4;j++){
   for(i=0;i<4;i++){
       vram_adr(NTADR_A(x+i,y+j));
@@ -139,7 +139,8 @@ void main(void)
   }
   }
   
- 
+  num=0;
+  x=7;y=2;
   for(j=0;j<4;j++){
   for(i=0;i<4;i++){
       vram_adr(NTADR_A(x+i,y+j));
@@ -147,6 +148,17 @@ void main(void)
       num = num +1;
   }
   }
+  
+  num = 16;
+  x=12;y=2;
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
+  }
+  }
+  
   // draw message  
  
   // enable rendering
