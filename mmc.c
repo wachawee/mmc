@@ -1,22 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <nes.h>
-
 #include "neslib.h"
-
-// link the pattern table into CHR ROM
-
-
-// BCD arithmetic support
-#include "bcd.h"
-//#link "bcd.c"
-
-// VRAM update buffer
-#include "vrambuf.h"
-//#link "vrambuf.c"
 
 #define NES_MAPPER 2
 #define NES_CHR_BANK 0
+
 const char TILESET[256] = {
 0x0,0x3C,0x3E,0x1F,0x1F,0xF,0xF,0x7,
 0x0,0x38,0x3B,0x3B,0x1B,0x19,0x2,0xF,
@@ -105,14 +94,16 @@ const char PALETTE[32] = {
 
 // setup PPU and tables
 void setup_graphics() {
-  // clear sprites
-  oam_clear();
-  // set palette colors
   pal_all(PALETTE);
-  bank_bg(0);
+  
   vram_adr(0x00);
   vram_write(TILESET2,sizeof(TILESET2));
   vram_adr(0x100);
+  vram_write(TILESET,sizeof(TILESET));
+  
+  vram_adr(0x1000);
+  vram_write(TILESET2,sizeof(TILESET2));
+  vram_adr(0x1100);
   vram_write(TILESET,sizeof(TILESET));
 
 }
