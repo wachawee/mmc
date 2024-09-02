@@ -1,11 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
-
-// include NESLIB header
-#include "neslib.h"
-
-// include CC65 NES Header (PPU)
 #include <nes.h>
+
+#include "neslib.h"
 
 // link the pattern table into CHR ROM
 
