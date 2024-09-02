@@ -1,7 +1,3 @@
-
-#include <stdlib.h>
-#include <string.h>
-
 #include <stdlib.h>
 #include <string.h>
 
@@ -116,6 +112,7 @@ void setup_graphics() {
   oam_clear();
   // set palette colors
   pal_all(PALETTE);
+  bank_bg(0);
   vram_adr(0x00);
   vram_write(TILESET2,sizeof(TILESET2));
   vram_adr(0x100);
