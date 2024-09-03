@@ -4,7 +4,7 @@
 #include "neslib.h"
 
 #define NES_MAPPER 2
-#define NES_CHR_BANK 0
+#define NES_CHR_BANKS 0
 
 const char TILESET[256] = {
 0x0,0x3C,0x3E,0x1F,0x1F,0xF,0xF,0x7,
